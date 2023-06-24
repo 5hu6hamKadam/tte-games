@@ -1,0 +1,19 @@
+<div class="sudoku-game-page" (click)="onClickOutside()">
+  <div class="game-container">
+    <app-sudoku-board [board]="board"></app-sudoku-board>
+  </div>
+  <div>
+    <app-sudoku-num-input
+      (input)="
+        board.isNotes
+          ? gameManagerService.setSlotNote($event)
+          : gameManagerService.setSlotValue($event)
+      "
+    ></app-sudoku-num-input>
+    <app-sudoku-control-panel
+      [board]="board"
+      (undo)="gameManagerService.undo()"
+      (redo)="gameManagerService.redo()"
+    ></app-sudoku-control-panel>
+  </div>
+</div>

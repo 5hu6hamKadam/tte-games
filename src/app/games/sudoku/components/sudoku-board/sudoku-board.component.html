@@ -1,0 +1,14 @@
+<div class="board-container" *ngIf="board">
+  <ng-container *ngFor="let row of board.getSlots(); let x = index">
+    <ng-container *ngFor="let slot of row; let y = index">
+      <app-sudoku-slot
+        [ngClass]="{
+          'slot-container': true,
+          'slot-highlight': slot.isCellHighlight
+        }"
+        [slot]="slot"
+        (click)="onSlotClick($event, {x, y})"
+      ></app-sudoku-slot>
+    </ng-container>
+  </ng-container>
+</div>

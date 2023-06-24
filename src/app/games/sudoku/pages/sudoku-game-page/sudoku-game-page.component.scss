@@ -1,0 +1,8 @@
+$dimension: calc(min(100vh, 100vw) - 8px);
+.game-container {
+  height: $dimension;
+  width: $dimension;
+}
+.sudoku-game-page {
+  display: flex;
+}

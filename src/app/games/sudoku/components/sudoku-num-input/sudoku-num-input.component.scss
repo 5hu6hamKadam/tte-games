@@ -1,0 +1,12 @@
+.num-input-container {
+  display: flex;
+
+  .input-slot {
+    padding: 2rem;
+    outline: 1px solid black;
+    &:hover {
+      background: grey;
+      color: white;
+    }
+  }
+}

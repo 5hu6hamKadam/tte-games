@@ -1,0 +1,36 @@
+<div class="slot-container">
+  <p
+    [ngClass]="[
+      'value-lbl',
+      slot.isVisible
+        ? ''
+        : slot.value === slot.answer
+        ? 'user-input-lbl'
+        : 'user-incorrect-lbl',
+      slot.isNumberHighlight ? 'num-highlight' : ''
+    ]"
+    *ngIf="slot.value; else notes"
+  >
+    {{ slot.value }}
+  </p>
+  <ng-template #notes>
+    <div class="note" *ngIf="slot.getNotes() as userNotes">
+      <ng-container *ngFor="let note of notesList">
+        <p
+          class="note-lbl"
+          [ngStyle]="{
+            'text-align':
+              note % 3 === 0
+                ? 'right'
+                : [2, 5, 8].includes(note)
+                ? 'center'
+                : 'left',
+            visibility: !userNotes.includes(note) ? 'hidden' : 'visible'
+          }"
+        >
+          {{ note }}
+        </p>
+      </ng-container>
+    </div>
+  </ng-template>
+</div>

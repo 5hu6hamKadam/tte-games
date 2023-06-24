@@ -1,0 +1,57 @@
+Menu with Easy, Medium & Hard
+See partially filled board
+Click on cell and then click on number to enter in cell center :notes off
+If notes is toggled then enter number in corner. If already number present then move to next corner (Max limit?)
+Compare the entered number if correct then color should be green
+If entered number incorrect then color should be red
+If 3 attempts are over for incorrect answer then gameover.
+User should be able to undo and redo the changes.
+User can also clear entered number in cell center and notes
+Once all fields are filled then display win message including score. Score should be calculated using time required
+
+ISudokuSlotDto
+answer: number
+isVisible: boolean
+
+ISudokuPosition
+x: number
+y: number
+
+SudokuGameManager
++board: SudokuBoard
++history: SudokuMemento[]
++activeMementoIndex: number
++toggleIsErase(): void
++toggleIsNotes(): void
++undo(): void
++redo(): void
+
+SudokuMemento
+-state: Slot[][]
+getState(): Slot[][]
+
+SudokuBoard
++isErase: boolean
++isNotes: boolean
+-slots: Slot[][]
++restoreFromMemento(memento: SudokuMemento): void
++onCellClick(position: IPosition): void
++initializeSlots(slots: ISlotDto[]): void
++getSlots(): Slot[][]
++setSlotValue(position: IPosition, value: value): void
++setSlotNote(position: IPosition, note: value): void
+-onNumberClick():void
+-onEmptyCellClick():void
+-updateCellHighlight(position: IPosition):void
+-updateNumberHighlight(selectedNumber: number):void
+
+Slot
++value?: number
++answer: number
++notes: Set[]
++isCellHighlight: boolean => to make bg grey
++isNumberHighlight: boolean => to make bg dark grey and font bold
++toggleNote(note:string): void
++eraseNotes():void
++eraseValue():void
+static fromDto(dto: ISlotDto): void

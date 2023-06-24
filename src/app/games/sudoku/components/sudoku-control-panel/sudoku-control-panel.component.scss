@@ -1,0 +1,15 @@
+.sudoku-control-panel-container {
+  display: flex;
+  > .control {
+    padding: 2rem;
+    border: solid black 2px;
+    &.active {
+      background: grey;
+      color: white;
+    }
+    &:hover {
+      background: grey;
+      color: white;
+    }
+  }
+}

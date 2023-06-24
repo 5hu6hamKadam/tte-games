@@ -1,0 +1,26 @@
+<div class="sudoku-control-panel-container" *ngIf="board">
+  <div
+    [ngClass]="{ control: true, active: board.isNotes }"
+    (click)="onControlInputClick($event, inputType.Note)"
+  >
+    Notes {{ board.isNotes }}
+  </div>
+  <div
+    [ngClass]="{ control: true, active: board.isErase }"
+    (click)="onControlInputClick($event, inputType.Erase)"
+  >
+    Erase {{ board.isErase }}
+  </div>
+  <div
+    [ngClass]="{ control: true }"
+    (click)="onControlInputClick($event, inputType.Undo)"
+  >
+    Undo
+  </div>
+  <div
+    [ngClass]="{ control: true }"
+    (click)="onControlInputClick($event, inputType.Redo)"
+  >
+    Redo
+  </div>
+</div>

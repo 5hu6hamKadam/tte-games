@@ -1,0 +1,28 @@
+.slot-container {
+  .value-lbl {
+    margin: 0;
+    font-size: 2rem;
+    &.user-input-lbl {
+      color: blue;
+    }
+    &.user-incorrect-lbl {
+      color: red;
+    }
+    &.num-highlight {
+      font-weight: bold;
+    }
+  }
+  .note {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    .note-lbl {
+      margin: 0px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<div class="num-input-container">
+  <div
+    class="input-slot"
+    *ngFor="let item of numbers"
+    (click)="onInputClick($event, item)"
+  >
+    {{ item }}
+  </div>
+</div>
